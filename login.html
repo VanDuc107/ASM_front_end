@@ -1,0 +1,91 @@
+<html>
+	<head>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	  <link rel="stylesheet" href= "css/bootstrap.min.css">
+	  <link rel="stylesheet" href= "css/bootstrap.css">
+	  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" >
+	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+	</head>
+<body ng-app="myapp">
+	<div class="row" ng-controller ="frmdn">
+		<div class=" col-5 m-auto login-purple-pink p-3 shadow-lg rounded">
+			<div class="pt-3">
+				<h2 class="text-white ">ĐĂNG NHẬP</h2>
+			</div>
+
+			<form class="mt-5">
+				<div class="form-group">
+					<input type="text" 
+						class="form-control form-control-sm bg-light" 
+						ng-model = "un"
+						placeholder="UserName">
+				</div>
+
+				<div class="form-group">
+					<input type="password" 
+						class="form-control form-control-sm bg-light" 
+						ng-model ="pw"
+						placeholder="Password">
+				</div>
+
+				<div class="form-group form-check">
+					<input type="checkbox" class="form-check-input" id="rememberCheckBox">
+					<label class="form-check-label text-light" for="rememberCheckBox">Remember me?</label>
+				</div>
+
+				<div class="mt-5">
+					<button class="btn btn-sm btn-light col" ng-click="dn()">
+						Đăng nhập
+					</button>
+				</div>
+
+				<div class="text-center mt-2">
+					<a href="#" class="text-warning">Quên mật khẩu?</a>
+				</div>
+				
+				<div class="mt-5">
+					<p class="text-white text-center">
+						Bạn chưa có tài khoản?
+						<a href="#" class="text-warning">Click here to Đăng kí</a>
+					</p>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+<script src="db/Students.js"></script>
+<script>
+	var app = angular.module("myapp",[]);
+	app.controller("frmdn",myfunc);
+	function myfunc($scope){
+		$scope.dn=function(){
+			var u = $scope.un;
+			var p = $scope.pw;
+			var tc=false;
+			var stu;
+			for(var i=0; i<students.length; i++){
+				stu = students[i];
+				if(u==stu.username && p==stu.password){
+					tc=true;
+					break;
+				}
+			}
+			if(tc){
+				alert("Đăng nhập thành công");
+				sessionStorage.setItem("username",stu.username);
+				sessionStorage.setItem("hoten",stu.fullname);
+				sessionStorage.setItem("email",stu.email);
+				document.location="home.html";
+			}
+			else{
+				alert("Đăng nhập không thành công!!")
+			}
+		}
+	}	
+	
+</script>
+</html>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

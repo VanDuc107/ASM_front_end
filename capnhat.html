@@ -1,0 +1,91 @@
+<html>
+	<head>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	  <link rel="stylesheet" href= "css/bootstrap.min.css">
+	  <link rel="stylesheet" href= "css/bootstrap.css">
+	  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" >
+	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+	</head>
+	<body ng-app="myapp">
+	<div class="col-6 m-auto">
+		<div class="login-purple-pink p-3 shadow-lg rounded">
+			<div class="pt-3">
+				<h2 class="text-white ">CẬP NHẬT TÀI KHOẢN</h2>
+			</div>
+
+			<form class="mt-5" ng-controller="frmUp">
+                <div class="form-group">
+					<input type="text" 
+						class="form-control form-control-sm bg-light" 
+						ng-model ="ten"
+						placeholder="Tên">
+				</div>
+                <div class="form-group">
+					<input type="text" 
+						class="form-control form-control-sm bg-light" 
+						ng-model ="diachi"
+						placeholder="Địa chỉ">
+				</div>
+
+				<div class="form-group">
+					<input type="email" 
+						class="form-control form-control-sm bg-light" 
+						ng-model ="email"
+						placeholder="Email">
+				</div>
+
+				<div class="form-group">
+					<input type="password" 
+						class="form-control form-control-sm bg-light"
+						ng-model ="pw1"
+						placeholder="Password">
+				</div>
+                <div class="form-group">
+					<input type="password" 
+						class="form-control form-control-sm bg-light" 
+						ng-model ="pw2"
+						placeholder="Nhập lại password">
+				</div>
+				<div class="col-8 m-auto">
+					<button class="btn btn-sm btn-light bg-success" ng-click="Up()">
+						Cập Nhật
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>	
+</body>
+	<script>
+		var app = angular.module("myapp",[]);
+		app.controller("frmUp",function($scope){
+			$scope.Up = function() {
+				var ten = $scope.ten;
+				var diachi = $scope.diachi;
+				var mail = $scope.email;
+			var pw1 = $scope.pw;
+			var pw2 = $scope.pw2;
+			alert="Chúc mừng đã thành công"			
+		if(pw1 == pw2){
+          Swal.fire({
+          icon: 'success',
+          title: 'thành công',
+          showConfirmButton: false,
+          timer: 15
+        })
+		document.location="home.html"
+        }
+		else{
+          Swal.fire({
+          icon: 'error',
+          text: 'Vui lòng kiểm tra lại!',
+        	})
+		}
+		}
+})
+	</script>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

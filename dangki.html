@@ -1,0 +1,83 @@
+<html>
+	<head>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	  <link rel="stylesheet" href= "css/bootstrap.min.css">
+	  <link rel="stylesheet" href= "css/bootstrap.css">
+	  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" >
+	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+	</head>
+	<body ng-app="myapp">
+	<div class="col-4 m-auto" ng-controller ="frmdk">
+		<div class="login-purple-pink p-3 shadow-lg rounded">
+			<div class="pt-3">
+				<h2 class="text-white ">ĐĂNG KÍ TÀI KHOẢN</h2>
+			</div>
+
+			<form class="mt-5">
+                <div class="form-group">
+					<input type="text" 
+						class="form-control form-control-sm bg-light"
+						ng-model ="ten"
+						placeholder="Tên">
+				</div>
+				<div class="form-group">
+					<input type="text" 
+						class="form-control form-control-sm bg-light"
+						ng-model="un"
+						placeholder="UserName">
+				</div>
+				<div class="form-group">
+					<input type="email" 
+						class="form-control form-control-sm bg-light"
+						ng-model="mail"
+						placeholder="Email">
+				</div>
+
+				<div class="form-group">
+					<input type="password" 
+						class="form-control form-control-sm bg-light"
+						ng-model="pw"
+						placeholder="Password">
+				</div>
+                <div class="form-group">
+					<input type="password" 
+						class="form-control form-control-sm bg-light"
+						ng-model="pw2"
+						placeholder="Nhập lại password">
+				</div>
+
+				<div class="form-group form-check">
+					<input type="checkbox" class="form-check-input" id="rememberCheckBox">
+					<label class="form-check-label text-light" for="rememberCheckBox">Remember me?</label>
+				</div>
+
+				<div class="mt-5">
+					<button class="btn btn-sm btn-light col" type="submit" ng-click ="dki()">
+						Đăng kí
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+<script src="db/Students.js"></script>
+<script>
+	var app = angular.module("myapp",[]);
+	app.controller("frmdk",myfunc);
+	function myfunc($scope){
+		$scope.dki = function() {
+			var ten = $scope.ten;
+			var un = $scope.un;
+			var mail = $scope.mail;
+			var pw = $scope.pw;
+			var pw2 = $scope.pw2;
+			alert("Bạn đã đăng kí thành công. Chúc mừng đẫ bị bịp")
+			document.location = "home.html"
+		}
+	}
+</script>
+</html>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

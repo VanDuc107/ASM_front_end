@@ -1,0 +1,39 @@
+<section class="ftco-section">
+    <div class="container" >
+      <div class="row" >
+        <div class="col-lg-12 ftco-animate">
+            <div class="card" style="min-height: 450px;">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-6"><h4>Online</h4></div>
+                    </div>
+                </div>
+                <div class="card-body p-5" ng-repeat="q in caccauhoi | limitTo:1:begin">
+                    <p>{{begin+1}}. {{q.Text}}?</p>
+                    <input type="hidden" id="dapAn" value="{{q.AnswerId}}" />
+                    <p ng-repeat="a in q.Answers">
+                        <input type="radio" name="radio" ng-model="traLoi.checked" value="{{a.Id}}"> 
+                            {{a.Text}} 
+                        </input>
+                      </p>
+                      <input type="hidden" id="cauTraLoi" value="{{traLoi.checked}}">
+                </div>
+                <div class=" m-auto pb-0">
+                  <nav aria-label="Page navigation example m-auto ">
+                    <ul class="pagination">
+                      <li class="page-item "><a class="page-link" href="" ng-click="prev()"><i class="fas fa-backward"></i></a></li>
+                      <li class="page-item "><a class="page-link " href="" ng-click="next()"><i class="fas fa-forward"></i></a></li>   
+                    </ul>
+                  </nav> 
+                </div>
+                <ul class="ml-auto mr-5"><button type="button" class="btn btn-primary ml-5" ng-click="subMit()" >Hoàn thành</button></ul>
+                <div  class="card-footer text-center">
+                  <div class="col-6 m-auto"><span class="badge badge-success ">Điểm: {{mark}}</span>
+                    <span id="countdown" class="timer badge badge-success m-auto"></span></div>
+                </div>
+                
+              </div>
+        </div>
+      </div>    
+    </div> 
+  </section>

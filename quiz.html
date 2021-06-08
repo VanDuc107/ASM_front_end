@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href= "css/bootstrap.min.css">
+    <link rel="stylesheet" href= "css/bootstrap.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" >
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="myapp">
+  <div ng-controller="myctrl">
+      <div class="card col-6 m-auto">
+          <div class="card-header">
+            <h4>XÂY DỰNG TRANG WEB</h4>
+          </div>
+          <div class=" card-body" ng-repeat="ch in listch | limitTo:1:start">
+            <p>{{ch.Text}} <span class="badge badge-pill badge-primary float-right">{{ch.Marks}}</span></p>
+            <hr>
+            <input type="hidden" value="{{ch.AnswerId}}" />
+            <p ng-repeat="a in ch.Answers">
+                <input type="radio" name="radio"> 
+                    {{a.Text}} 
+                </input>
+            </p>
+            <div class="text-center">
+              <button class="btn  btn-outline-danger" ng-click="lui()">Câu trước</button>
+              <button class="btn  btn-outline-danger ml-5" ng-click="tiep()">Câu tiếp</button>
+              <button type="button" class="btn btn-primary ml-5" ng-click="subMit()" >Hoàn thành</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer text-center"><span class="badge badge-success ">Điểm: {{mark}}</span></div>
+      </div>
+</body>
+
+    <script src="/Quizs/ADAV.js"></script>
+    <script>
+        var app = angular.module("myapp", []);
+        app.controller("myctrl", myfunc);
+        function myfunc($scope){
+            $scope.start=0;
+            $scope.listch = cauhoi;
+            
+            $scope.tiep= function(){
+              $scope.start+=3;
+            }
+            $scope.lui= function(){
+              $scope.start-=3;
+            }
+        }
+    </script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</html>
